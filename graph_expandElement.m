@@ -3,7 +3,8 @@
 %the one with index  @x   idxNBest) and returns the updated versions of  @x  
 %graphVector and  @x   pqOpen.
 function [graphVector,pqOpen]=graph_expandElement(graphVector,idxNBest,idxX,idxGoal,pqOpen)
-    cNBestX = graphVector(idxNBest).neighborsCost(find(graphVector(idxNBest).neighbors==idxX));
+    idxNeighborNBest = find(graphVector(idxNBest).neighbors==idxX);
+    cNBestX = graphVector(idxNBest).neighborsCost(idxNeighborNBest(1));
     
     if ~priority_isMember(pqOpen, graphVector(idxX))
         graphVector(idxX).g = graphVector(idxNBest).g + cNBestX;
