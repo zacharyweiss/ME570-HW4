@@ -19,10 +19,8 @@ function [graphVector]=sphereworld_freeSpace_graph(NCells)
     grid = struct('xx',linspace(tMin,tMax,NCells),'yy',linspace(tMin,tMax,NCells));
     
     % evaluate function across grid determining free space
-    % arbitrary potential, only using to find collisions (which yield NaN)
-    pot = struct('xGoal',xGoal,'repulsiveWeight',0.1,'shape','conic'); 
-    nocollide = @(xEval) ~isnan(potential_total(xEval,world,pot));
-    grid = grid_eval(grid,nocollide);
+    nocollide = @(xEval) potential_total(xEval,world,struct
+    grid = grid_eval(grid,@nocollide);
     
     % compute graphVector from grid
     graphVector = grid2graph(grid);
