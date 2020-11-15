@@ -40,7 +40,7 @@ function [xPath,graphVector]=graph_search(graphVector,idxStart,idxGoal)
     end
     
     % reconstruct path from backpointers
-    xPath = graph_path(graphVector,idxStart,idxGoal);
+    xPath = 
 end
 % Set a maximum limit of iterations in the main  @x   A* loop on line 
 %it:astar-main-loop of Algorithm  alg:astar. This will prevent the algorithm from
