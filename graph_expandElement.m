@@ -6,7 +6,7 @@ function [graphVector,pqOpen]=graph_expandElement(graphVector,idxNBest,idxX,idxG
     idxNeighborNBest = find(graphVector(idxNBest).neighbors==idxX);
     cNBestX = graphVector(idxNBest).neighborsCost(idxNeighborNBest(1));
     
-    if ~priority_isMember(pqOpen, graphVector(idxX))
+    if ~priority_isMember(pqOpen, idxX)
         graphVector(idxX).g = graphVector(idxNBest).g + cNBestX;
         graphVector(idxX).backpointer = idxNBest;
         pqOpen = priority_insert(pqOpen,idxX,graphVector(idxX).g+graph_heuristic(graphVector,idxX,idxGoal));
