@@ -3,8 +3,9 @@
 %(line  it:expansion in Algorithm  alg:astar).
 function [idxExpand]=graph_getExpandList(graphVector,idxNBest,idxClosed)
     idxExpand = graphVector(idxNBest).neighbors;
-    [~,pos] = intersect(idxExpand,[graphVector(idxClosed).neighbors;idxNBest]);
+    [~,pos] = intersect(idxExpand,graphVector(idxClosed).neighbors);
     idxExpand(pos) = [];
+    
 end
 %Ensure that the vector  @x   idxBest is not included in the list of neighbors
 %(i.e., avoid self-loop edges in the graph).
