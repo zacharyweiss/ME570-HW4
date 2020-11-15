@@ -28,8 +28,8 @@ function [xPath,graphVector]=graph_search(graphVector,idxStart,idxGoal)
         % find all non-closed neighbors of nbest (expand)
         % iterate through list of neigbors and update backpointers / 
         starNBest = graph_getExpandList(graphVector,idxNBest,idxClosed);
-        for xStarNBest=1:length(starNBest) 
-            [graphVector,pqO] = graph_expandElement(graphVector,idxNBest,starNBest(xStarNBest),idxGoal,pqO);
+        for iStarNBest=1:numel(starNBest) 
+            [graphVector,pqO] = graph_expandElement(graphVector,idxNBest,starNBest(iStarNBest),idxGoal,pqO);
         end
         
         % exit if exceeds iteration maximum
