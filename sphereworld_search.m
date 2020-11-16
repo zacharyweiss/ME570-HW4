@@ -7,7 +7,7 @@
 %goal.  the world using sphereworld_plot, together with the resulting
 %trajectories. enumerate enumerate enumerate
 function sphereworld_search(NCells)
-    load sphereworld.mat
+    load('sphereworld.mat','xStart','xGoal');
     graphVector = sphereworld_freeSpace_graph(NCells);
 
     for i=1:size(xGoal,2)
