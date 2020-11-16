@@ -6,3 +6,14 @@
 %xPath from  @x   idxStart to  @x   idxGoal.   @x   xStart and  @x   xGoal,
 %respectively, to the beginning and the end of the array  @x   xPath. enumerate
 function [xPath]=graph_search_startGoal(graphVector,xStart,xGoal)
+    % approximate start and goal locations on generated graph
+    idxStart = graph_nearestNeighbors(graphVector,xStart,1);
+    idxGoal = graph_nearestNeighbors(graphVector,xGoal,1);
+    
+    % A* path through graph between found start / goal nodes
+    [xPath,graphVector] = graph_search(graphVector,idxStart,idxGoal);
+    
+    graph_plot(graphVector)
+    hold on
+    plot(xPath(1,:),xPath(2,:),'r')
+end
