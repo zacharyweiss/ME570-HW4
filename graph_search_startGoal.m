@@ -13,6 +13,8 @@ function [xPath]=graph_search_startGoal(graphVector,xStart,xGoal)
     % A* path through graph between found start / goal nodes
     [xPath,graphVector] = graph_search(graphVector,idxStart,idxGoal);
     
+    %xPath = [graphVector(idxStart).x xPath graphVector(idxGoal).x]
+        
     % for plotting, uncomment
 %     graph_plot(graphVector)
 %     hold on
