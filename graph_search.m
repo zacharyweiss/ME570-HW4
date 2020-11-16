@@ -12,7 +12,7 @@ function [xPath,graphVector]=graph_search(graphVector,idxStart,idxGoal)
     % loop until queue is empty, max iterations hit,
     % or the best neighbor is the goal
     iter = 1;
-    iMax = 1000;
+    iMax = 10000;
     while ~isempty(pqO)
         % pick nbest, remove from O
         [pqO,idxNBest,~] = priority_minExtract(pqO);
