@@ -16,7 +16,7 @@ function [xPath]=graph_search_startGoal(graphVector,xStart,xGoal)
     xPath = [graphVector(idxStart).x xPath graphVector(idxGoal).x];
         
     % for plotting, uncomment
-%     graph_plot(graphVector)
-%     hold on
-%     plot(xPath(1,:),xPath(2,:),'r')
+    graph_plot(graphVector)
+    hold on
+    plot(xPath(1,:),xPath(2,:),'r')
 end
